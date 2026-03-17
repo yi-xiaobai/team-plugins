@@ -17,6 +17,19 @@
 
 ## 快速开始
 
+### 0. 环境配置（首次使用）
+
+MR 相关命令需要 GitLab Token，请确保 `~/.zshrc` 或 `~/.bash_profile` 中已配置：
+
+```bash
+# 一键配置（复制粘贴即可）
+echo 'export GITLAB_TOKEN="your-gitlab-token"' >> ~/.zshrc
+echo 'export GITLAB_HOST="gitlab.company.com"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+> **获取 Token**: GitLab → Settings → Access Tokens → 创建一个有 `api` 权限的 token
+
 ### 1. 添加 Marketplace
 
 ```bash

@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*), Bash(git diff:*), Bash(git push:*), Bash(git fetch:*), Bash(git branch:*), Bash(git remote:*), Bash(git log:*), Bash(curl:*)
+allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(git add:*), Bash(git commit:*), Bash(git push:*), Bash(curl *gitlab*:*), Bash(jq:*)
 description: Commit, push, and create GitLab Merge Request
 ---
 
@@ -19,46 +19,17 @@ User may specify target branch: `/commit-push-mr [target_branch]`
 
 ## Your task
 
-Based on the above changes, commit, push, and create a GitLab Merge Request.
+Based on the above changes:
 
-1. **Commit changes**
-   - Analyze the changes and generate a commit message using Conventional Commits format
-   - Stage relevant files (avoid .env, credentials, secrets)
-   - Create the commit
+1. Create a single commit with an appropriate message using Conventional Commits format
+2. Push the branch to origin
+3. Create a GitLab Merge Request via API with:
+   - Target branch: user specified or `dev`
+   - Title: commit message
+   - Options: remove_source_branch=true, squash=true
+4. Report the MR URL on success
 
-2. **Push to remote**
-   - Push current branch to origin
-
-3. **Create GitLab MR**
-   - Extract project path from remote URL
-   - Get project ID from GitLab API
-   - Create MR with:
-     - Source branch: current branch
-     - Target branch: user specified or `dev`
-     - Title: commit message
-     - Options: delete source branch, squash commits
-
-   ```bash
-   # Get project path
-   PROJECT_PATH=$(git remote get-url origin | sed 's|.*[:/]\([^/]*/[^/]*\)\.git|\1|')
-   ENCODED_PATH=$(echo "$PROJECT_PATH" | sed 's|/|%2F|g')
-   
-   # Create MR (replace <target_branch> with user input or default 'dev')
-   curl -s --request POST \
-     --header "PRIVATE-TOKEN: $GITLAB_TOKEN" \
-     --header "Content-Type: application/json" \
-     --data '{
-       "source_branch": "<current_branch>",
-       "target_branch": "<target_branch>",
-       "title": "<commit_message>",
-       "remove_source_branch": true,
-       "squash": true
-     }' \
-     "https://$GITLAB_HOST/api/v4/projects/$ENCODED_PATH/merge_requests"
-   ```
-
-4. **Report result**
-   - Show MR URL on success
+You MUST do all of the above in a single message. Do not send any other text or messages besides the tool calls.
 
 ## Configuration
 
