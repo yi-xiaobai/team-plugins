@@ -9,6 +9,7 @@
 | **branch-commands** | `/branch-create`, `/branch-switch`, `/branch-delete` | Git 分支工作流 |
 | **commit-commands** | `/commit`, `/commit-push`, `/commit-push-mr`, `/commit-undo` | Git 提交工作流 |
 | **mr-commands** | `/mr-list` | GitLab MR 工作流 |
+| **plugin-linter** | `/plugin-lint` | 插件规范检查 |
 
 > **个人效率工具**（Skills）：
 > - `/log` → work-log skill
@@ -40,7 +41,7 @@ source ~/.zshrc
 ### 2. 安装插件
 
 ```bash
-/plugin install branch-commands commit-commands mr-commands@team-plugins
+/plugin install branch-commands commit-commands mr-commands plugin-linter@team-plugins
 ```
 
 ### 3. 使用
@@ -60,6 +61,10 @@ source ~/.zshrc
 # MR 管理
 /mr-list                         # 查看我的 MR
 /mr-list --all                   # 查看所有 MR
+
+# 插件开发
+/plugin-lint                     # 检查所有插件规范
+/plugin-lint path/to/file.md     # 检查单个文件
 ```
 
 ## 目录结构
@@ -82,8 +87,11 @@ team-plugins/
 │   │   │   ├── commit-push-mr.md
 │   │   │   └── commit-undo.md
 │   │   └── README.md
-│   └── mr-commands/
-│       ├── commands/mr-list.md
+│   ├── mr-commands/
+│   │   ├── commands/mr-list.md
+│   │   └── README.md
+│   └── plugin-linter/
+│       ├── commands/plugin-lint.md
 │       └── README.md
 └── README.md
 ```
