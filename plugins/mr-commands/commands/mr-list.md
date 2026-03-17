@@ -63,7 +63,12 @@ https://$GITLAB_HOST/$PROJECT_PATH/merge_requests/$IID
 
 In markdown: `[#42](https://gitlab.company.com/group/project/merge_requests/42)`
 
-Show: MR link, title, author, source→target branch, updated time, pipeline status
+Show: MR link, title, author, source→target branch, updated time (YYYY-MM-DD format), pipeline status
+
+**Time format**: Convert `updated_at` from ISO 8601 to YYYY-MM-DD format using:
+```bash
+date -j -f "%Y-%m-%dT%H:%M:%S" "$(echo $UPDATED_AT | cut -d'.' -f1)" "+%Y-%m-%d"
+```
 
 ## Output format
 
@@ -72,8 +77,8 @@ Show: MR link, title, author, source→target branch, updated time, pipeline sta
 
 | MR | Title | Branch | Updated | Pipeline |
 |----|-------|--------|---------|----------|
-| [#42](https://gitlab.company.com/group/project/merge_requests/42) | feat: add login | feat/login → dev | 2小时前 | ✅ passed |
-| [#38](https://gitlab.company.com/group/project/merge_requests/38) | fix: order calc | fix/order → dev | 1天前 | ❌ failed |
+| [#42](https://gitlab.company.com/group/project/merge_requests/42) | feat: add login | feat/login → dev | 2026-03-17 | ✅ passed |
+| [#38](https://gitlab.company.com/group/project/merge_requests/38) | fix: order calc | fix/order → dev | 2026-03-16 | ❌ failed |
 ```
 
 With `--all`:
@@ -82,8 +87,8 @@ With `--all`:
 
 | MR | Title | Author | Branch | Updated | Pipeline |
 |----|-------|--------|--------|---------|----------|
-| [#42](https://gitlab.company.com/group/project/merge_requests/42) | feat: add login | zhangsan | feat/login → dev | 2小时前 | ✅ |
-| [#41](https://gitlab.company.com/group/project/merge_requests/41) | fix: bug | lisi | fix/bug → dev | 3小时前 | ✅ |
+| [#42](https://gitlab.company.com/group/project/merge_requests/42) | feat: add login | zhangsan | feat/login → dev | 2026-03-17 | ✅ |
+| [#41](https://gitlab.company.com/group/project/merge_requests/41) | fix: bug | lisi | fix/bug → dev | 2026-03-17 | ✅ |
 ```
 
 ## Configuration
