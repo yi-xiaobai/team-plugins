@@ -25,7 +25,8 @@ Based on the above changes:
 3. Create a GitLab Merge Request using `glab mr create` with:
    - Target branch: user specified or `dev`
    - Title: commit message (first line only)
-   - Options: --remove-source-branch --squash-before-merge
+   - Options: --remove-source-branch --squash-before-merge --yes
+   - Note: `--yes` skips interactive confirmation prompts
 4. Report the MR URL on success
 
 You MUST do all of the above in a single message. Do not send any other text or messages besides the tool calls.
