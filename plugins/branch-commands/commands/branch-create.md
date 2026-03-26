@@ -21,7 +21,7 @@ User may specify: `/branch-create <type> <description> [base_branch] [--ide=code
 ## Your task
 
 1. Parse user input for branch type, description, and base branch
-2. Generate branch name with auto-versioning: `{type}-{description}-v{N}`
+2. Generate branch name with auto-versioning: `{type}_{description}_v{N}`
    - Check existing branches of same type for max version number
    - Increment version by 1
    - Translate Chinese description to English kebab-case
