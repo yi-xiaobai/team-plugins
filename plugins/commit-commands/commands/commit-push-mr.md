@@ -12,9 +12,9 @@ description: Commit, push, and create GitLab Merge Request
 
 ## Parameters
 
-User may specify target branch: `/commit-push-mr [target_branch]`
-- If not specified, default to `dev`
-- Common values: `dev`, `master`, `main`, `release/*`
+User may specify: `/commit-push-mr [target_branch] [--wip]`
+- `target_branch`: 目标分支，默认 `dev`，常用值: `dev`, `master`, `main`, `release/*`
+- `--wip`: 创建 Draft MR（WIP），表示还在开发中，不可合并
 
 ## Your task
 
@@ -26,7 +26,8 @@ Based on the above changes:
    - Target branch: user specified or `dev`
    - Assignee: 使用 `--assignee @me` 将 MR 指派给当前提交人
    - 使用 `--fill` 自动从最近的 commit 获取 title 和 description
-   - 命令格式: `glab mr create --target-branch <branch> --fill --assignee @me --remove-source-branch --squash-before-merge --yes`
+   - 如果用户指定了 `--wip`，添加 `--draft` 参数创建 Draft MR
+   - 命令格式: `glab mr create --target-branch <branch> --fill --assignee @me --remove-source-branch --squash-before-merge [--draft] --yes`
 4. Report the MR URL on success
 
 ## Error Handling
