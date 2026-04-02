@@ -4,13 +4,13 @@ GitLab Merge Request 工作流命令集合。
 
 ## 命令列表
 
-### /mr-title
+### /mr-beautify
 
 ```bash
-/mr-title [target-branch]
+/mr-beautify [target-branch]
 ```
 
-根据当前分支的 git commits 生成 MR title 和 description。
+根据当前分支的 git commits 生成 MR title 和 description，并更新远端 MR。
 
 | 参数 | 说明 |
 |------|------|
@@ -18,8 +18,8 @@ GitLab Merge Request 工作流命令集合。
 
 示例：
 ```bash
-/mr-title           # 对比 dev 分支
-/mr-title main      # 对比 main 分支
+/mr-beautify           # 对比 dev 分支
+/mr-beautify main      # 对比 main 分支
 ```
 
 输出示例：
@@ -85,7 +85,7 @@ feat(auth): add OAuth2 login support
 | `/mr-comment` | 添加评论 | ⭐ |
 | `/mr-pipeline` | 查看 Pipeline 状态 | ⭐ |
 
-> 💡 **Tip**: 使用 `/mr-title` 生成 title 和 description 后，可以直接用于 `/mr-create`
+> 💡 **Tip**: 使用 `/mr-beautify` 自动美化已有 MR 的 title 和 description
 
 ## 安装
 

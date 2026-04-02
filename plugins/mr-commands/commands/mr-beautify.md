@@ -1,6 +1,6 @@
 ---
-allowed-tools: Bash(git log:*), Bash(git branch:*), Bash(git merge-base:*), Bash(glab mr update:*), Bash(glab mr list:*)
-description: Beautify MR — auto-generate title & description from commits and update remote MR
+allowed-tools: Bash(git log:*), Bash(git branch:*), Bash(glab mr update:*), Bash(glab api:*)
+description: Generate MR title and description based on git commits, then update remote MR
 ---
 
 ## Parameters
@@ -21,8 +21,14 @@ Based on the above commits, generate MR title and description, then update remot
 2. Generate title: `{type}: {中文概述}`
 3. Generate description: 每个 commit 提炼为一条简洁的中文变更点
    - **忽略**: revert commit 以及被 revert 的原 commit（成对剔除，不计入变更点）
-4. Find MR for current branch: `glab mr list --author=@me` 然后从结果中匹配当前分支
-5. Update MR: `glab mr update {mr-id} --title "{title}" --description "{description}"`
+4. Find MR for current branch:
+   ```bash
+   glab api "projects/:id/merge_requests?state=opened&source_branch={current-branch}" | jq '.[0].iid'
+   ```
+5. Update MR:
+   ```bash
+   glab mr update {mr-iid} --title "{title}" --description "{description}"
+   ```
 
 ## Output format
 
@@ -37,13 +43,12 @@ Based on the above commits, generate MR title and description, then update remot
 - {变更点2}
 - {变更点3}
 
-✅ MR #{mr-id} 已更新
+✅ MR !{mr-iid} 已更新
 ```
 
 ## Error Handling
 
 - **No commits**: 当前分支相对目标分支没有新提交
-- **Branch not found**: 建议检查分支名或 `git fetch`
 - **No MR found**: 当前分支没有关联的 MR，建议先创建 MR
 
 You MUST do all of the above in a single message.
