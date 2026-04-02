@@ -18,31 +18,21 @@ User may specify: `/mr-title [target-branch]`
 Based on the above commits, generate MR title and description.
 
 1. Analyze commits to determine primary change type (feat > fix > refactor > chore)
-2. Generate title: `{type}({scope}): {summary}` (max 72 chars)
-3. Generate description using template below
+2. Generate title: `{type}: {中文概述}`
+3. Generate description: 每个 commit 提炼为一条简洁的中文变更点
 
 ## Output format
 
 ```
 📝 **MR Title**
 
-{type}({scope}): {summary}
+{type}: {中文概述}
 
 📄 **MR Description**
 
-## 变更概述
-
-{One paragraph summary}
-
-## 主要变更
-
-- **{type}**: {description}
-
-## 提交记录
-
-| Commit | Message |
-|--------|---------|
-| {hash} | {message} |
+- {变更点1}
+- {变更点2}
+- {变更点3}
 ```
 
 ## Error Handling
