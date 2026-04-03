@@ -8,7 +8,7 @@
 |------|------|------|
 | **branch-commands** | `/branch-create`, `/branch-switch`, `/branch-delete` | Git 分支工作流 |
 | **commit-commands** | `/commit`, `/commit-push`, `/commit-push-mr`, `/commit-undo` | Git 提交工作流 |
-| **mr-commands** | `/mr-list` | GitLab MR 工作流 |
+| **mr-commands** | `/mr-beautify`, `/mr-list` | GitLab MR 工作流 |
 | **deploy-commands** | `/build`, `/publish`, `/release` | 通用构建发布 |
 | **plugin-linter** | `/plugin-lint` | 插件规范检查 |
 
@@ -69,6 +69,8 @@ glab auth login
 /commit-undo                     # 撤销最后一次提交
 
 # MR 管理
+/mr-beautify                     # 生成并更新 MR title/description
+/mr-beautify main                # 对比 main 分支
 /mr-list                         # 查看我的 MR
 /mr-list --all                   # 查看所有 MR
 
@@ -103,7 +105,9 @@ team-plugins/
 │   │   │   └── commit-undo.md
 │   │   └── README.md
 │   ├── mr-commands/
-│   │   ├── commands/mr-list.md
+│   │   ├── commands/
+│   │   │   ├── mr-beautify.md
+│   │   │   └── mr-list.md
 │   │   └── README.md
 │   ├── deploy-commands/
 │   │   ├── .claude-plugin/plugin.json
