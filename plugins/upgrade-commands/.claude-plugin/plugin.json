@@ -1,0 +1,7 @@
+{
+  "name": "upgrade-commands",
+  "description": "Commands for upgrading dependencies and creating upgrade MRs",
+  "author": {
+    "name": "Your Team"
+  }
+}

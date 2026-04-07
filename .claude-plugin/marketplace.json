@@ -24,6 +24,11 @@
       "name": "deploy-commands",
       "source": "./plugins/deploy-commands",
       "description": "通用构建发布工作流：build, publish, release"
+    },
+    {
+      "name": "upgrade-commands",
+      "source": "./plugins/upgrade-commands",
+      "description": "依赖升级工作流：turtle-upgrade"
     }
   ]
 }
