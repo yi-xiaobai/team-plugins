@@ -13,35 +13,27 @@ description: Commit, push, and create GitLab Merge Request
 ## Parameters
 
 User may specify: `/commit-push-mr [target_branch] [--wip]`
-- `target_branch`: 目标分支，默认 `dev`，常用值: `dev`, `master`, `main`, `release/*`
-- `--wip`: 创建 Draft MR（WIP），表示还在开发中，不可合并
+- `target_branch`: MR target branch (default: `dev`, common values: `dev`, `master`, `main`, `release/*`)
+- `--wip`: Create a Draft MR, indicating work in progress
 
 ## Your task
 
 Based on the above changes:
 
-1. Create a single commit with an appropriate message using Conventional Commits format
-2. Push the branch to origin
-3. Create a GitLab Merge Request using `glab mr create` with:
-   - Target branch: user specified or `dev`
-   - Assignee: 使用 `--assignee @me` 将 MR 指派给当前提交人
-   - 使用 `--fill` 自动从最近的 commit 获取 title 和 description
-   - 如果用户指定了 `--wip`，添加 `--draft` 参数创建 Draft MR
-   - 命令格式: `glab mr create --target-branch <branch> --fill --assignee @me --remove-source-branch --squash-before-merge [--draft] --yes`
-4. Report the MR URL on success
-
-## Error Handling
-
-- **禁止使用 `--no-verify`、`--force` 等绕过检查的参数**
-- 如果 pre-commit 检查失败：
-  - **样式问题**（如 lint、格式化错误）：pre-commit 会自动修复，重新 stage 修改后的文件并再次提交即可
-  - **逻辑问题**（如分支命名不规范、代码逻辑错误）：立即终止流程，向用户报告失败原因
-- 其他步骤失败（如 push、mr create）：立即终止流程，向用户报告失败原因
+1. Analyze the changes and generate a commit message using Conventional Commits format
+2. Stage relevant files (avoid .env, credentials, secrets)
+3. Create the commit
+4. Push the branch to origin
+5. Create a GitLab Merge Request:
+   - `glab mr create --target-branch <branch> --fill --assignee @me --remove-source-branch --squash-before-merge [--draft] --yes`
+6. Report the MR URL
 
 You MUST do all of the above in a single message. Do not send any other text or messages besides the tool calls.
 
-## Configuration
+## Error Handling
 
-Requires:
-- `glab` CLI installed
-- Run `glab auth login` to authenticate
+- NEVER use `--no-verify` or `--force`
+- If pre-commit check fails:
+  - Style issues (lint, formatting): pre-commit auto-fixes them, re-stage modified files and commit again
+  - Logic issues (branch naming, code errors): stop immediately and report the reason
+- Other failures (push, mr create, etc.): stop immediately and report the reason

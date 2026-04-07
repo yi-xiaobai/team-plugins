@@ -10,6 +10,11 @@ description: Commit and push to remote
 - Current branch: !`git branch --show-current`
 - Recent commits: !`git log --oneline -5`
 
+## Parameters
+
+User may specify: `/commit-push [message]`
+- `message`: Custom commit message. If omitted, auto-generate using Conventional Commits format
+
 ## Your task
 
 Based on the above changes, commit and push to remote.
@@ -21,19 +26,17 @@ Based on the above changes, commit and push to remote.
    - `style`: Code style
    - `refactor`: Refactoring
    - `chore`: Build/tools
-
 2. Stage relevant files (avoid .env, credentials, secrets)
-
 3. Create the commit
-
 4. Push to remote origin
+5. Report the push result
+
+You MUST do all of the above in a single message. Do not send any other text or messages besides the tool calls.
 
 ## Error Handling
 
-- **禁止使用 `--no-verify`、`--force` 等绕过检查的参数**
-- 如果 pre-commit 检查失败：
-  - **样式问题**（如 lint、格式化错误）：pre-commit 会自动修复，重新 stage 修改后的文件并再次提交即可
-  - **逻辑问题**（如分支命名不规范、代码逻辑错误）：立即终止流程，向用户报告失败原因
-- 其他步骤失败（如 push）：立即终止流程，向用户报告失败原因
-
-You have the capability to call multiple tools in a single response. Stage, commit, and push in a single message. Do not use any other tools or do anything else. Do not send any other text or messages besides these tool calls.
+- NEVER use `--no-verify` or `--force`
+- If pre-commit check fails:
+  - Style issues (lint, formatting): pre-commit auto-fixes them, re-stage modified files and commit again
+  - Logic issues (branch naming, code errors): stop immediately and report the reason
+- Other failures (push, etc.): stop immediately and report the reason
