@@ -16,26 +16,35 @@ Defaults: scan all plugins/*/commands/*.md files
 
 ## Your task
 
-Lint plugin files for compliance with official Claude Code plugin style. Check:
+Lint plugin files for compliance with official style. Check:
 
 ### 1. YAML Front Matter
 - [ ] `allowed-tools` must use specific patterns (e.g., `Bash(git add:*)`) not generic `Bash`
-- [ ] `description` must be present and concise
+- [ ] `description` must be present, concise, and in **English**
 
-### 2. Structure
-- [ ] Must have `## Context` section with `!`  syntax for dynamic values
-- [ ] Must have `## Your task` section
+### 2. Language
+- [ ] All content must be in **English** (no Chinese characters in command files)
 
-### 3. Your task section
-- [ ] Should NOT contain hardcoded bash scripts (code blocks with specific commands)
-- [ ] Should describe WHAT to do, not HOW
-- [ ] Must have single-message instruction: "You MUST do all... in a single message"
+### 3. Parameters Section
+- [ ] Must follow simplified format:
+  ```
+  ## Parameters
+  
+  `/command [args]`
+  
+  Defaults: key=value, key2=value2
+  ```
+- [ ] NO bullet list explanations for each parameter
+- [ ] NO "User may specify:" prefix
 
-### 4. Common issues to flag
-- Generic `allowed-tools: Bash` (too permissive)
-- Hardcoded scripts in task section
-- Missing single-message instruction
-- Excessive detail that should be left to Claude's reasoning
+### 4. Structure
+- [ ] Must have `## Context` section with `!` syntax for dynamic values
+- [ ] Must have `## Your task` or `## Task` section
+- [ ] Must end with: "You MUST do all of the above in a single message."
+
+### 5. Task Section
+- [ ] Describe WHAT to do, not HOW (no hardcoded bash scripts)
+- [ ] Keep it concise, let Claude reason about implementation
 
 ## Output format
 
@@ -45,9 +54,10 @@ Lint plugin files for compliance with official Claude Code plugin style. Check:
 **plugin-name/command.md**
 | Check | Status | Issue |
 |-------|--------|-------|
+| English only | ✅/❌ | ... |
+| Parameters format | ✅/❌ | ... |
 | allowed-tools | ✅/❌ | ... |
 | Context section | ✅/❌ | ... |
-| No hardcoded scripts | ✅/❌ | ... |
 | Single-message | ✅/❌ | ... |
 
 Summary: X passed, Y issues found
@@ -55,17 +65,27 @@ Summary: X passed, Y issues found
 
 ## Reference
 
-Official style example from anthropics/claude-plugins-official:
-```yaml
+```markdown
 ---
-allowed-tools: Bash(git checkout --branch:*), Bash(git add:*), Bash(git status:*)
-description: Brief description
+allowed-tools: Bash(git:*), Bash(pnpm:*), Edit
+description: Brief English description
 ---
-## Context
-- Current git status: !`git status`
 
-## Your task
-1. Task one
-2. Task two
-You MUST do all of the above in a single message. Do not send any other text or messages besides the tool calls.
+## Context
+
+- Current branch: !`git branch --show-current`
+
+## Parameters
+
+`/command [arg1] [--flag]`
+
+Defaults: arg1=default, flag=false
+
+## Task
+
+1. Step one
+2. Step two
+3. Report result
+
+You MUST do all of the above in a single message.
 ```

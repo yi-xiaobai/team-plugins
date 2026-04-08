@@ -4,6 +4,10 @@ description: List GitLab Merge Requests for current project
 disable-tools-approval: true
 ---
 
+## Context
+
+- Current project: !`git remote get-url origin 2>/dev/null | sed 's/.*[:/]\([^/]*\/[^/]*\)\.git/\1/'`
+
 ## Parameters
 
 `/mr-list [--all]`

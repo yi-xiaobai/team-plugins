@@ -75,4 +75,4 @@ Output summary:
 - **Build failure**: Show build errors
 - **Publish failure**: Show npm error, suggest fixes
 
-Execute all steps in sequence. Stop on first error.
+You MUST do all of the above in a single message.

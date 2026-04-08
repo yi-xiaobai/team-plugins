@@ -43,4 +43,4 @@ If `build` script doesn't exist, check for alternatives:
 - **Build script not found**: List available scripts from package.json
 - **Build errors**: Show relevant error lines, don't truncate
 
-Execute build and report result concisely.
+You MUST do all of the above in a single message.

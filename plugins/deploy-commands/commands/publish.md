@@ -55,4 +55,4 @@ git push && git push --tags
 - **Version conflict**: Suggest incrementing version
 - **Uncommitted changes**: List changes and ask user to commit first
 
-Report publish result with package name and version.
+You MUST do all of the above in a single message.

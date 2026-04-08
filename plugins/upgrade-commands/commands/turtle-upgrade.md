@@ -23,3 +23,5 @@ Defaults: version=latest, from=dev, to=dev
    - Delete source branch after merge (`--remove-source-branch`)
    - Squash commits (`--squash-before-merge`)
 4. Report MR URL
+
+You MUST do all of the above in a single message.
