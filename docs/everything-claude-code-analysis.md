@@ -4,7 +4,7 @@
 
 ### 1.1 项目规模对比
 
-| 维度 | Everything Claude Code | team-plugins (当前) |
+| 维度 | Everything Claude Code | collabcraft-plugins (当前) |
 |------|------------------------|---------------------|
 | **Agents** | 30 个专业化智能体 | 3 个基础 agent |
 | **Skills** | 135 个工作流技能 | 0 |
@@ -51,7 +51,7 @@
 
 ---
 
-## 二、当前 team-plugins 的局限性
+## 二、当前 collabcraft-plugins 的局限性
 
 ### 2.1 问题诊断
 
@@ -70,7 +70,7 @@
 **场景：开发一个新功能**
 
 ```
-team-plugins 当前流程:
+collabcraft-plugins 当前流程:
 1. /branch-create feat/xxx     ← 手动
 2. (编写代码)                   ← 无指导
 3. /verify-pre-commit          ← 手动
@@ -93,7 +93,7 @@ everything-claude-code 流程:
 ### 3.1 新架构设计
 
 ```
-team-plugins/ (升级后)
+collabcraft-plugins/ (升级后)
 ├── agents/                    # 专业化智能体
 │   ├── planner.md            # 任务规划
 │   ├── architect.md          # 架构设计
@@ -385,7 +385,7 @@ skills/
 
 ### 7.1 我们的聚焦点
 
-| ECC 覆盖 | team-plugins 聚焦 |
+| ECC 覆盖 | collabcraft-plugins 聚焦 |
 |----------|-------------------|
 | 全语言支持 | **前端团队专用** |
 | 通用工作流 | **GitLab 工作流** |

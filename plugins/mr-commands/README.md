@@ -90,7 +90,7 @@ feat(auth): add OAuth2 login support
 ## 安装
 
 ```bash
-/plugin install mr-commands@team-plugins
+/plugin install mr-commands@collabcraft-plugins
 ```
 
 ## Troubleshooting

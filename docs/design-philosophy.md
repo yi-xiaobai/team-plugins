@@ -1,4 +1,4 @@
-# Team Plugins 设计思想
+# CollabCraft Plugins 设计思想
 
 ## 核心理念
 

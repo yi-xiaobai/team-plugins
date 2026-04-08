@@ -59,7 +59,7 @@ Undo the last commit while preserving changes.
 ## Installation
 
 ```bash
-/plugin install commit-commands@team-plugins
+/plugin install commit-commands@collabcraft-plugins
 ```
 
 ## Best Practices

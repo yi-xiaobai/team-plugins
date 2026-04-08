@@ -63,5 +63,5 @@ Git 分支工作流命令集合。
 ## 安装
 
 ```bash
-/plugin install branch-commands@team-plugins
+/plugin install branch-commands@collabcraft-plugins
 ```

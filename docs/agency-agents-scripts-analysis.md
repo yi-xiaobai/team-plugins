@@ -231,7 +231,7 @@ lint-agents.sh
 
 ---
 
-## 对 team-plugins 的借鉴意义
+## 对 collabcraft-plugins 的借鉴意义
 
 | Agency Agents 特性 | 可借鉴点 |
 |-------------------|----------|

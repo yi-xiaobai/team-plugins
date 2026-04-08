@@ -1,4 +1,4 @@
-# Team Plugins
+# CollabCraft Plugins
 
 团队级 Git 工作流插件，通过 Marketplace 统一分发。
 
