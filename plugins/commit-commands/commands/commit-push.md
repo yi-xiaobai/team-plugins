@@ -10,12 +10,6 @@ description: Commit and push to remote
 - Current branch: !`git branch --show-current`
 - Recent commits: !`git log --oneline -5`
 
-## Parameters
-
-`/commit-push [message]`
-
-If message omitted, auto-generate using Conventional Commits
-
 ## Your task
 
 Based on the above changes, commit and push to remote.
