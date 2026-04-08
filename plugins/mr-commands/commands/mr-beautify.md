@@ -12,11 +12,13 @@ Defaults: target-branch=dev
 ## Context
 
 - Current branch: !`git branch --show-current`
-- Commits to merge: !`git log origin/$1..HEAD --oneline --no-merges 2>/dev/null || git log $1..HEAD --oneline --no-merges`
+- Commits to merge: !`git log --oneline --no-merges origin/$1..HEAD 2>/dev/null || git log --oneline --no-merges $1..HEAD`
 
 ## Your task
 
-Based on the commits from current branch (shown above), generate MR title and description, then update remote MR.
+Generate MR title and description based ONLY on the "Commits to merge" shown above, then update remote MR.
+
+**IMPORTANT**: Use ONLY the commits listed in Context section. Do NOT run additional git log commands.
 
 1. Analyze commits to determine primary change type (feat > fix > refactor > chore)
 2. Generate title based ONLY on the commit messages: `{type}: {summary}`
