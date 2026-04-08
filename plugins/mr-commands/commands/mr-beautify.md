@@ -20,10 +20,10 @@ Based on the commits from current branch (shown above), generate MR title and de
 
 1. Analyze commits to determine primary change type (feat > fix > refactor > chore)
 2. Generate title based ONLY on the commit messages: `{type}: {summary}`
-3. Generate description: extract each commit into a concise change point
+3. Generate description based ONLY on the commit messages: extract each commit into a concise change point
    - **Ignore**: revert commits and their original commits (exclude pairs)
 4. Find MR for current branch and update it:
-   - Use `glab mr view` to check if MR exists for current branch
+   - Use `glab mr view` to check if MR exists
    - Use `glab mr update` to update title and description
 
 ## Error Handling
