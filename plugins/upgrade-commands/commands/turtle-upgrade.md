@@ -22,7 +22,7 @@ User may specify: `/turtle-upgrade [version] [--from dev|master] [--to dev|maste
 2. Create upgrade branch: `git checkout -b chore_upgrade_turtle_<version>`
 3. Run upgrade: `pnpm update @master/turtle@<version|latest>`
 4. Stage and commit: `git add package.json pnpm-lock.yaml && git commit -m "chore: upgrade @master/turtle to <version>"`
-5. Push to remote: `git push origin <branch_name>`
+5. Push and create remote branch: `git push -u origin <branch_name>`
 6. Create MR: `glab mr create --target-branch <to> --fill --assignee @me --remove-source-branch --yes`
 7. Report the MR URL
 
