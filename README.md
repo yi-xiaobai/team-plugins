@@ -33,7 +33,3 @@ plugin-name/
 ├── commands/            # Slash commands
 └── README.md            # Documentation
 ```
-
-## License
-
-See each plugin directory for details.
