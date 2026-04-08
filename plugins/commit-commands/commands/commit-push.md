@@ -12,8 +12,9 @@ description: Commit and push to remote
 
 ## Parameters
 
-User may specify: `/commit-push [message]`
-- `message`: Custom commit message. If omitted, auto-generate using Conventional Commits format
+`/commit-push [message]`
+
+If message omitted, auto-generate using Conventional Commits
 
 ## Your task
 

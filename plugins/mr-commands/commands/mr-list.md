@@ -6,9 +6,9 @@ disable-tools-approval: true
 
 ## Parameters
 
-User may specify: `/mr-list [--all]`
-- Default: show current user's MRs only (`--author=@me`)
-- `--all`: show all open MRs
+`/mr-list [--all]`
+
+Defaults: show current user's MRs only
 
 ## Your task
 
@@ -16,15 +16,13 @@ User may specify: `/mr-list [--all]`
 2. Otherwise: run `glab mr list --author=@me`
 3. Format output as markdown table with: MR number, title, author (--all only), branch, updated date
 
-Note: glab 默认只显示 open 状态的 MR，无需指定 `--state` 参数
-
-You MUST do all of the above in a single message. Do not send any other text or messages besides the tool calls.
+You MUST do all of the above in a single message.
 
 ## Output format
 
 Default:
 ```
-📋 **project/name** - 我的 MR 列表 (3)
+📋 **project/name** - My MR List (3)
 
 | MR | Title | Branch | Updated |
 |----|-------|--------|---------|
@@ -33,7 +31,7 @@ Default:
 
 With `--all`:
 ```
-📋 **project/name** - 所有 MR 列表 (5)
+📋 **project/name** - All MR List (5)
 
 | MR | Title | Author | Branch | Updated |
 |----|-------|--------|--------|---------|

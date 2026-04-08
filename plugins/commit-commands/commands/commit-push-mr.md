@@ -12,9 +12,9 @@ description: Commit, push, and create GitLab Merge Request
 
 ## Parameters
 
-User may specify: `/commit-push-mr [target_branch] [--wip]`
-- `target_branch`: MR target branch (default: `dev`, common values: `dev`, `master`, `main`, `release/*`)
-- `--wip`: Create a Draft MR, indicating work in progress
+`/commit-push-mr [target_branch] [--wip]`
+
+Defaults: target_branch=dev
 
 ## Your task
 

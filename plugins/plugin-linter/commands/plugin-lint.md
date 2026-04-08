@@ -10,9 +10,9 @@ description: Lint Claude Code plugin files for official style compliance
 
 ## Parameters
 
-User may specify: `/plugin-lint [path]`
-- Default: scan all `plugins/*/commands/*.md` files
-- Specific path: lint a single file
+`/plugin-lint [path]`
+
+Defaults: scan all plugins/*/commands/*.md files
 
 ## Your task
 

@@ -12,11 +12,9 @@ description: Create a new Git branch with auto-versioning
 
 ## Parameters
 
-User may specify: `/branch-create <type> <description> [base_branch] [--ide=code|windsurf]`
-- `type`: `feat` (feature), `fix` (bugfix), or `hotfix` (urgent fix)
-- `description`: Branch description (Chinese or English)
-- `base_branch`: Default `dev`
-- `--ide`: Open in IDE after creation (default: windsurf)
+`/branch-create <type> <description> [base_branch] [--ide=code|windsurf]`
+
+Defaults: base_branch=dev, ide=windsurf
 
 ## Your task
 

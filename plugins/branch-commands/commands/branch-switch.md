@@ -13,10 +13,9 @@ description: Smart switch between Git branches with fuzzy search
 
 ## Parameters
 
-User may specify: `/branch-switch [keyword|number]`
-- No argument: Show recent branches to select
-- Keyword: Fuzzy match branch names (e.g., "login" → feat-user-login-v3)
-- Number: Switch to branch #N from recent list
+`/branch-switch [keyword|number]`
+
+No argument shows recent branches to select
 
 ## Your task
 
@@ -34,6 +33,6 @@ You MUST do all of the above in a single message. Do not send any other text or 
 ## Output format
 
 ```
-✅ 已切换到分支: <branch_name>
-📊 分支状态: <ahead/behind info>
+✅ Switched to branch: <branch_name>
+📊 Branch status: <ahead/behind info>
 ```

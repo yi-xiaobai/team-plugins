@@ -12,9 +12,9 @@ description: Full release workflow - build, version, publish, and push
 
 ## Parameters
 
-User may specify: `/release [version-type] [--dry-run]`
-- `version-type`: `patch` (default), `minor`, `major`
-- `--dry-run`: Show what would happen without executing
+`/release [patch|minor|major] [--dry-run]`
+
+Defaults: version-type=patch
 
 ## Your task
 

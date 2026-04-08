@@ -12,9 +12,9 @@ description: Publish package to npm registry
 
 ## Parameters
 
-User may specify: `/publish [version-type] [--tag=<tag>]`
-- `version-type`: `patch` (default), `minor`, `major`, `prepatch`, `preminor`, `premajor`, `prerelease`
-- `--tag`: npm dist-tag (e.g., `beta`, `next`)
+`/publish [patch|minor|major] [--tag=<tag>]`
+
+Defaults: version-type=patch
 
 ## Your task
 

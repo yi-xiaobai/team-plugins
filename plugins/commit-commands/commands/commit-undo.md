@@ -11,10 +11,9 @@ description: Undo the last commit while keeping changes
 
 ## Parameters
 
-User may specify: `/commit-undo [mode]`
-- `soft` (default): Undo commit, keep changes staged
-- `mixed`: Undo commit, unstage changes
-- `hard`: Undo commit AND discard changes (requires confirmation)
+`/commit-undo [soft|mixed|hard]`
+
+Defaults: soft (keep changes staged)
 
 ## Your task
 

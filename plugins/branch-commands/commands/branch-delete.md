@@ -13,10 +13,9 @@ description: Clean up merged or stale Git branches
 
 ## Parameters
 
-User may specify: `/branch-delete [keyword|merged]`
-- No argument: Show cleanup options
-- `merged`: Delete all merged branches
-- Specific branch name: Delete that branch
+`/branch-delete [keyword|merged]`
+
+No argument shows cleanup options
 
 ## Your task
 
