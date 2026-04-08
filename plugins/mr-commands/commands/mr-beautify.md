@@ -15,8 +15,9 @@ Generate MR title and description based ONLY on the "Commits to merge" shown abo
 1. From MR info above, get the `target_branch`
 2. Get commits: `git log --oneline --no-merges --first-parent origin/{target_branch}..HEAD`
 3. Analyze commits to determine primary change type (feat > fix > refactor > chore)
-4. Generate title based ONLY on the commit messages: `{type}: {summary}`
-5. Generate description based ONLY on the commit messages: extract each commit into a concise change point
+4. Generate title using Conventional Commits format: `{type}: {summary}`
+   - Summarize the overall change intent, do NOT copy commit messages verbatim
+5. Generate description: extract each commit into a concise change point
    - **Ignore**: revert commits and their original commits (exclude pairs)
 6. Use `glab mr update` to update title and description
 
