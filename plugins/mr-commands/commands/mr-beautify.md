@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(git log:*), Bash(git branch:*), Bash(glab mr update:*), Bash(glab api:*)
+allowed-tools: Bash(git log:*), Bash(git branch:*), Bash(glab mr update:*), Bash(glab mr view:*)
 description: Generate MR title and description based on git commits, then update remote MR
 ---
 
@@ -22,7 +22,9 @@ Based on the above commits, generate MR title and description, then update remot
 2. Generate title: `{type}: {summary}`
 3. Generate description: extract each commit into a concise change point
    - **Ignore**: revert commits and their original commits (exclude pairs)
-4. Find MR for current branch and update it
+4. Find MR for current branch and update it:
+   - Use `glab mr view` to check if MR exists for current branch
+   - Use `glab mr update` to update title and description
 
 ## Error Handling
 
