@@ -10,15 +10,15 @@ description: Upgrade @master/turtle package version
 
 ## Parameters
 
-`/turtle-upgrade [version] [--from dev|master] [--to dev|master]`
+`/turtle-upgrade [version] [--branch dev|master]`
 
-Defaults: version=latest, from=dev, to=dev
+Defaults: version=latest, branch=dev
 
 ## Task
 
-1. Create branch `chore_upgrade_turtle_<version>` from `<from>`
+1. Create branch `chore_upgrade_turtle_<version>` from `<branch>`
 2. Update `@master/turtle` version in package.json, run `pnpm i`
-3. Commit, push, create MR with:
+3. Commit, push, create MR to `<branch>` with:
    - Assignee: current user (`--assignee @me`)
    - Delete source branch after merge (`--remove-source-branch`)
    - Squash commits (`--squash-before-merge`)
